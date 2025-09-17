@@ -1,0 +1,14 @@
+pragma solidity ^0.8.20;
+
+contract LandMarket {
+    struct Listing {
+        uint256 price;
+        address seller;
+    }
+
+    mapping(uint256 => Listing) public listings;
+
+    function list(uint256 landId, uint256 price) external {
+        listings[landId] = Listing(price, msg.sender);
+    }
+}
